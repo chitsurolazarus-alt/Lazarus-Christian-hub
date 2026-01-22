@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazarus's Christian Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✝</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <h1 class="logo"><i class="fas fa-cross"></i> Lazarus's Christian Hub</h1>
+                <p class="tagline">AI-Powered Bible Study & Spiritual Growth</p>
+            </div>
+            <div class="nav-controls">
+                <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+                    <i class="fas fa-adjust"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <ul class="nav-menu">
+                    <li class="nav-item active" data-section="home">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </li>
+                    <li class="nav-item" data-section="quiz">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Bible Quiz</span>
+                    </li>
+                    <li class="nav-item" data-section="scripture">
+                        <i class="fas fa-bible"></i>
+                        <span>Scripture Search</span>
+                    </li>
+                    <li class="nav-item" data-section="motivation">
+                        <i class="fas fa-heart"></i>
+                        <span>Daily Motivation</span>
+                    </li>
+                    <li class="nav-item" data-section="psalms">
+                        <i class="fas fa-pray"></i>
+                        <span>Psalms Prayers</span>
+                    </li>
+                    <li class="nav-item" data-section="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>About</span>
+                    </li>
+                </ul>
+                
+                <div class="daily-verse">
+                    <h3><i class="fas fa-star"></i> Verse of the Day</h3>
+                    <p id="dailyVerseText">"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life."</p>
+                    <p id="dailyVerseRef">John 3:16 (NIV)</p>
+                </div>
+            </nav>
+
+            <!-- Content Sections -->
+            <div class="content-area">
+                <!-- Home Section -->
+                <section id="home" class="content-section active">
+                    <div class="welcome-card">
+                        <h2><i class="fas fa-church"></i> Welcome to Lazarus's Christian Hub</h2>
+                        <p>Your AI-powered companion for Bible study, spiritual growth, and Christian fellowship. Explore the Word of God through interactive quizzes, scripture search, daily motivation, and prayers from the book of Psalms.</p>
+                        
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-question-circle feature-icon"></i>
+                                <h3>Bible Quiz</h3>
+                                <p>Test your knowledge with AI-generated multiple-choice Bible quizzes.</p>
+                                <button class="feature-btn" data-section="quiz">Try a Quiz</button>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-bible feature-icon"></i>
+                                <h3>Scripture Search</h3>
+                                <p>Find any verse in the NIV Bible using keywords or references.</p>
+                                <button class="feature-btn" data-section="scripture">Search Now</button>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-heart feature-icon"></i>
+                                <h3>Daily Motivation</h3>
+                                <p>Receive uplifting Bible verses tailored to your current needs.</p>
+                                <button class="feature-btn" data-section="motivation">Get Motivated</button>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-pray feature-icon"></i>
+                                <h3>Psalms Prayers</h3>
+                                <p>Discover powerful prayers from the Book of Psalms for every situation.</p>
+                                <button class="feature-btn" data-section="psalms">Find Prayers</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bible Quiz Section -->
+                <section id="quiz" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-question-circle"></i> AI Bible Quiz Generator</h2>
+                        <p>Test your Bible knowledge with automatically generated quizzes. Customize by category, difficulty, and number of questions.</p>
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <div class="control-group">
+                            <label for="quizCategory">Category:</label>
+                            <select id="quizCategory">
+                                <option value="all">All Categories</option>
+                                <option value="gospel">Gospels</option>
+                                <option value="pauline">Pauline Epistles</option>
+                                <option value="old">Old Testament</option>
+                                <option value="miracles">Miracles</option>
+                                <option value="parables">Parables</option>
+                                <option value="prophecy">Prophecy</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="quizDifficulty">Difficulty:</label>
+                            <select id="quizDifficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="questionCount">Questions:</label>
+                            <select id="questionCount">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </div>
+                        
+                        <button id="generateQuiz" class="primary-btn">
+                            <i class="fas fa-magic"></i> Generate New Quiz
+                        </button>
+                    </div>
+                    
+                    <div class="quiz-container">
+                        <div id="quizLoading" class="loading hidden">
+                            <i class="fas fa-spinner fa-spin"></i> Generating your personalized quiz...
+                        </div>
+                        
+                        <div id="quizResults" class="quiz-results hidden">
+                            <h3><i class="fas fa-trophy"></i> Quiz Results</h3>
+                            <p>You scored <span id="score">0</span> out of <span id="totalQuestions">0</span>!</p>
+                            <p id="resultMessage"></p>
+                            <button id="retryQuiz" class="secondary-btn">Try Again</button>
+                        </div>
+                        
+                        <div id="quizContent">
+                            <!-- Quiz questions will be dynamically inserted here -->
+                        </div>
+                        
+                        <div id="quizSubmitArea" class="hidden">
+                            <button id="submitQuiz" class="primary-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Quiz
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scripture Search Section -->
+                <section id="scripture" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bible"></i> Scripture Search</h2>
+                        <p>Search the entire NIV Bible by keyword, topic, or specific reference.</p>
+                    </div>
+                    
+                    <div class="search-controls">
+                        <div class="search-box">
+                            <input type="text" id="scriptureSearch" placeholder="Enter keyword, topic, or Bible reference (e.g., 'John 3:16', 'love', 'faith')">
+                            <button id="searchScripture" class="primary-btn">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+                        
+                        <div class="search-filters">
+                            <label for="bookFilter">Filter by Book:</label>
+                            <select id="bookFilter">
+                                <option value="all">All Books</option>
+                                <!-- Book options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="search-results">
+                        <div id="searchLoading" class="loading hidden">
+                            <i class="fas fa-spinner fa-spin"></i> Searching scriptures...
+                        </div>
+                        
+                        <div id="verseList">
+                            <!-- Search results will appear here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Daily Motivation Section -->
+                <section id="motivation" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-heart"></i> Daily Motivation</h2>
+                        <p>Receive uplifting Bible verses tailored to your current situation.</p>
+                    </div>
+                    
+                    <div class="motivation-controls">
+                        <div class="situation-selector">
+                            <h3>What do you need today?</h3>
+                            <div class="situation-buttons">
+                                <button class="situation-btn" data-situation="comfort">Comfort</button>
+                                <button class="situation-btn" data-situation="strength">Strength</button>
+                                <button class="situation-btn" data-situation="hope">Hope</button>
+                                <button class="situation-btn" data-situation="peace">Peace</button>
+                                <button class="situation-btn" data-situation="guidance">Guidance</button>
+                                <button class="situation-btn" data-situation="joy">Joy</button>
+                                <button class="situation-btn" data-situation="courage">Courage</button>
+                                <button class="situation-btn" data-situation="forgiveness">Forgiveness</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="motivation-display">
+                        <div id="motivationLoading" class="loading hidden">
+                            <i class="fas fa-spinner fa-spin"></i> Finding the perfect verse for you...
+                        </div>
+                        
+                        <div id="motivationVerse" class="verse-card">
+                            <div class="verse-header">
+                                <h3>Selected for you:</h3>
+                                <button id="shareVerse" class="share-btn" title="Share this verse">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                            <p id="motivationText">"Cast all your anxiety on him because he cares for you."</p>
+                            <p id="motivationReference">1 Peter 5:7 (NIV)</p>
+                            <p id="motivationExplanation">When you're feeling overwhelmed, remember that God invites you to give Him all your worries. He is not distant or uncaring but deeply concerned about every detail of your life.</p>
+                        </div>
+                        
+                        <div class="action-buttons">
+                            <button id="newMotivation" class="primary-btn">
+                                <i class="fas fa-random"></i> Get Another Verse
+                            </button>
+                            <button id="saveMotivation" class="secondary-btn">
+                                <i class="fas fa-bookmark"></i> Save for Later
+                            </button>
+                        </div>
+                        
+                        <div class="saved-verses">
+                            <h3><i class="fas fa-bookmark"></i> Saved Verses</h3>
+                            <div id="savedVersesList">
+                                <!-- Saved verses will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Psalms Prayers Section -->
+                <section id="psalms" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-pray"></i> Psalms Prayers</h2>
+                        <p>Discover powerful prayers from the Book of Psalms for every situation in life.</p>
+                    </div>
+                    
+                    <div class="psalms-controls">
+                        <div class="prayer-categories">
+                            <h3>Select a Prayer Category:</h3>
+                            <div class="category-buttons">
+                                <button class="category-btn active" data-category="all">All Prayers</button>
+                                <button class="category-btn" data-category="praise">Praise & Worship</button>
+                                <button class="category-btn" data-category="help">Help in Trouble</button>
+                                <button class="category-btn" data-category="forgiveness">Forgiveness</button>
+                                <button class="category-btn" data-category="protection">Protection</button>
+                                <button class="category-btn" data-category="thanksgiving">Thanksgiving</button>
+                                <button class="category-btn" data-category="guidance">Guidance</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="psalms-display">
+                        <div id="psalmsLoading" class="loading hidden">
+                            <i class="fas fa-spinner fa-spin"></i> Loading prayers...
+                        </div>
+                        
+                        <div id="prayersList">
+                            <!-- Prayers will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-info-circle"></i> About Lazarus's Christian Hub</h2>
+                        <p>Learn more about this AI-powered Bible study tool and how to use it.</p>
+                    </div>
+                    
+                    <div class="about-content">
+                        <div class="about-card">
+                            <h3><i class="fas fa-cross"></i> Our Mission</h3>
+                            <p>Lazarus's Christian Hub is designed to help believers and seekers alike engage with the Bible through modern technology. Our AI-powered features make Bible study interactive, accessible, and meaningful for the digital age.</p>
+                        </div>
+                        
+                        <div class="about-card">
+                            <h3><i class="fas fa-brain"></i> AI-Powered Features</h3>
+                            <ul>
+                                <li><strong>Bible Quiz Generator:</strong> Creates personalized multiple-choice quizzes based on your selected categories and difficulty.</li>
+                                <li><strong>Scripture Search:</strong> Quickly find verses using natural language or references.</li>
+                                <li><strong>Daily Motivation:</strong> Receive Bible verses tailored to your current emotional and spiritual needs.</li>
+                                <li><strong>Psalms Prayers:</strong> Access prayers from the Book of Psalms categorized by life situations.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="about-card">
+                            <h3><i class="fas fa-code"></i> Technology</h3>
+                            <p>This application is built with HTML, CSS, and JavaScript, using a simulated AI engine to generate content. All Bible verses are from the New International Version (NIV).</p>
+                        </div>
+                        
+                        <div class="about-card">
+                            <h3><i class="fas fa-hands-praying"></i> How to Use</h3>
+                            <ol>
+                                <li>Navigate between sections using the sidebar menu.</li>
+                                <li>Generate Bible quizzes by selecting your preferences.</li>
+                                <li>Search scriptures by keyword, topic, or reference.</li>
+                                <li>Get daily motivation by selecting your current need.</li>
+                                <li>Explore Psalms prayers by category.</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="about-card">
+                            <h3><i class="fas fa-share-alt"></i> Share & Contribute</h3>
+                            <p>This project is open source and hosted on GitHub. Feel free to contribute, suggest features, or report issues.</p>
+                            <button id="githubBtn" class="primary-btn">
+                                <i class="fab fa-github"></i> View on GitHub
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Lazarus's Christian Hub &copy; 2023 - AI-Powered Bible Study Tool</p>
+            <p>All Bible verses from the New International Version (NIV)</p>
+            <div class="footer-links">
+                <a href="#" id="privacyLink">Privacy</a>
+                <a href="#" id="termsLink">Terms</a>
+                <a href="#" id="contactLink">Contact</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for displaying full scripture -->
+    <div id="verseModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="modalTitle">Scripture</h3>
+            <div id="modalBody">
+                <!-- Modal content will be inserted here -->
+            </div>
+            <div class="modal-actions">
+                <button id="copyVerse" class="secondary-btn">
+                    <i class="fas fa-copy"></i> Copy Verse
+                </button>
+                <button id="closeModal" class="primary-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
